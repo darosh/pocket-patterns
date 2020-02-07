@@ -42,7 +42,11 @@ const resources = [
   { title: 'Source Code', items: [{ title: 'GitHub', link: 'https://github.com/darosh/pocket-patterns' }] }
 ]
 
-onMount(() => {
+window.addEventListener('hashchange', onHash, false)
+
+onMount(onHash)
+
+function onHash () {
   if (location.hash) {
     try {
       const el = document.querySelector(decodeURIComponent(location.hash))
@@ -53,7 +57,7 @@ onMount(() => {
     } catch (e) {
     }
   }
-})
+}
 
 function svg (path) {
   return path[0] === '<' ? path : `<path d="${path}" />`
