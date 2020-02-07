@@ -86,7 +86,7 @@ function hash (text) {
 
 <svelte:window bind:innerWidth={width}/>
 
-<div class="drawer-frame-root">
+<div>
   <Drawer variant={width < 1024 ? 'modal' : 'permanent'} bind:this={drawer} bind:open={drawerOpen}>
     <Content>
       <List>
@@ -113,19 +113,18 @@ function hash (text) {
     <main class="main-content">
       <IntersectionObserver on:intersecting={({detail}) => active['patterns'] = detail}>
         <h1
-          id="patterns"
-          style="font-family: Lora, sans-serif !important; font-size: 72px; word-spacing: -8px; letter-spacing: -2.5px; margin-right: 24px;">
+          id="patterns">
           Pocket<span
           style="line-height: 84px; vertical-align: text-bottom; padding: 0 4px 0 20px;"
           class="logo"> <Logo size="66px"/> </span>Patterns
         </h1>
 
-        <p style="font-size: 20px; line-height: 28px; margin-right: 24px;">Drum machine patterns based on
+        <p style="font-size: 20px; line-height: 28px;">Drum machine patterns based on
           <a href="https://shittyrecording.studio/" class="link" target="_blank">Shitty Recording Studio</a> collection.
         </p>
       </IntersectionObserver>
 
-      <div style="margin: 48px 24px 0 24px;">
+      <div style="margin-top: 48px;" class="margin-side">
         <List>
           <Separator/>
         </List>
@@ -134,8 +133,7 @@ function hash (text) {
         {#each groups as group, index (index)}
           <IntersectionObserver on:intersecting={({detail}) => active[group.id] = detail}>
             <h2
-              id={group.id}
-              style="font-family: Lora, sans-serif !important; font-size: 48px;; letter-spacing: 6px;">
+              id={group.id}>
               <a href={group.hash}>
                   {index + 1}. {group.title}
               </a>
@@ -144,8 +142,7 @@ function hash (text) {
                   {#if !pattern.part || (pattern.part === 'A')}
                     <div style="display: flex; height: 48px; margin-top: 48px;">
                       <h3
-                        id={pattern.id}
-                        style="flex-grow: 1; align-self: center; font-size: 24px; font-weight: normal; letter-spacing: 1px;">
+                        id={pattern.id}>
                         <a href={pattern.hash}>{pattern.title}</a></h3>
                       <div style="align-self: center; margin-right: 4px; opacity: 0.6">
                         120
@@ -155,7 +152,7 @@ function hash (text) {
                           <IconSvg data={svg(metronome)} viewBox="0 0 24 24" size="24px"></IconSvg>
                         </IconButton>
                       </div>
-                      <div style="align-self: center; margin-right: 24px;">
+                      <div style="align-self: center;">
                         <IconButton on:click={() => playing = !playing} class="mini-btn">
                           <IconSvg data={svg(playing ? play_arrow : stop)} viewBox="0 0 24 24" size="24px"></IconSvg>
                         </IconButton>
@@ -165,10 +162,10 @@ function hash (text) {
                     <div style="height: 24px;"/>
                   {/if}
                 <div style="display: flex">
-                  <div style="width: 24px; font-weight: bold;">
+                  <div class="part" style="width: 24px; padding-left: 8px; font-weight: bold;">
                       {pattern.part || ''}
                   </div>
-                  <div style="flex-grow: 1; margin-right: 24px;">
+                  <div style="flex-grow: 1;">
                     <Grid {...{ pattern, instruments }}/>
                   </div>
                 </div>
@@ -176,7 +173,7 @@ function hash (text) {
           </IntersectionObserver>
         {/each}
 
-      <div style="margin: 48px 24px 0 24px;">
+      <div style="margin-top: 48px;">
         <List>
           <Separator/>
         </List>
@@ -200,13 +197,13 @@ function hash (text) {
           {/each}
       </IntersectionObserver>
 
-      <div style="margin: 48px 24px 0 24px;">
+      <div style="margin-top: 48px;" class="margin-side">
         <List>
           <Separator/>
         </List>
       </div>
 
-      <p style="text-align: right; margin-right: 24px;">
+      <p style="text-align: right;">
         <span style="opacity: 0.87;">Made in Brno</span><span
         style="line-height: 12px; vertical-align: text-bottom; padding: 0 4px 0 8px;"
         class="logo"> <Logo size="24px"/> </span><span style="opacity: 0.87;">MMXX</span>
@@ -215,53 +212,86 @@ function hash (text) {
   </AppContent>
 </div>
 <style>
-.drawer-frame-root {
-  display: flex;
-  height: 100vh;
+* :global(.mdc-drawer) {
+  width: 216px;
 }
 
-* :global(.mdc-drawer--modal, .mdc-drawer-scrim) {
-  /* This is not needed for a page-wide modal. */
-  position: absolute;
+* :global(.mdc-drawer, .mdc-drawer--modal, .mdc-drawer-scrim) {
+  position: fixed;
 }
 
-* :global(.app-content) {
-  flex: auto;
-  overflow: auto;
-  position: relative;
-  flex-grow: 1;
+@media only screen and (min-width: 1024px) {
+  * :global(.app-content) {
+    margin-left: 216px;
+  }
 }
 
 .main-content {
   overflow: auto;
-  padding: 48px;
-  padding-bottom: 64px;
+  padding: 48px 64px 64px 48px;
   height: 100%;
   box-sizing: border-box;
 }
 
+h1, h2, h3, p, .margin-side {
+  margin-left: 24px;
+}
+
+h1 {
+  font-family: Lora, sans-serif !important;
+  font-size: 72px;
+  word-spacing: -8px;
+  letter-spacing: -2.5px;
+}
+
+h2 {
+  font-family: Lora, sans-serif !important;
+  font-size: 48px;;
+  letter-spacing: 6px;
+}
+
+h3 {
+  flex-grow: 1;
+  align-self: center;
+  font-size: 24px;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
 @media only screen and (max-width: 960px) {
   .main-content {
-    padding: 16px;
-    padding-top: 32px;
-    padding-bottom: 24px;
+    padding: 32px 40px 24px 16px;
   }
 }
 
 @media only screen and (max-width: 640px) {
   .main-content {
-    padding: 8px;
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding: 24px 24px 24px 0;
   }
 }
 
-:global(body) {
-  background: #484848;
-  font-family: Roboto, sans-serif;
-  color: #fff;
-  padding: 24px;
-  margin: 0;
+@media only screen and (max-width: 360px) {
+  .main-content {
+    padding: 24px 4px;
+  }
+
+  .part {
+    display: none;
+  }
+
+
+  h1, h2, h3, p, .margin-side {
+    margin-left: 0;
+  }
+
+  h2 {
+    letter-spacing: 2px !important;
+    font-size: 26px !important;
+  }
+
+  h3 {
+    font-size: 18px !important;
+  }
 }
 
 h2 {
@@ -275,10 +305,6 @@ h3 {
   font-size: 24px;
   font-weight: normal;
   letter-spacing: 1px;
-}
-
-h1, h2, h3, p {
-  margin-left: 24px;
 }
 
 h1 {

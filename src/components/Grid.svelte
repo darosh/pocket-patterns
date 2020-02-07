@@ -5,7 +5,7 @@ export let instruments
 <div class="border all">
     {#each pattern.instruments.filter(({key}) => key !== 'AC') as instrument, index (index)}
       <div style="display: flex; ">
-        <div style="width: 144px; text-align: center;">
+        <div class="instrument-wrap">
           <div class="cell border">{instruments[instrument.key].name}</div>
         </div>
         <div style="display: flex; flex-grow: 1;">
@@ -13,12 +13,14 @@ export let instruments
               <div
                 class="{'cell border ' + (Math.floor(index / 4) % 2 ? 'even' : 'odd') + (instrument.hits.includes(index + 1) ? ' active' : '')}"
                 style={`display: flex; flex-basis: 100%; text-align: center; background-color: ${instrument.hits.includes(index + 1) ? instruments[instrument.key].color : null}`}>
-                {#if instrument.hits.includes(index + 1)}
-                <span class="digit" style="flex-grow: 1;">{index + 1}</span>
-                {/if}
+                  {#if instrument.hits.includes(index + 1)}
+                    <span class="digit" style="flex-grow: 1;">{index + 1}</span>
+                  {/if}
                   {#if instrument.hits.includes(`${index + 1}.1`) || instrument.hits.includes(`${index + 1}.2`)}
-                    <div style="border-radius: 2px; flex-grow: 1; margin: 4px 3px 4px 5px; background-color: {instrument.hits.includes(`${index + 1}.1`) ? instruments[instrument.key].color : 'transparent'}"/>
-                    <div style="border-radius: 2px; flex-grow: 1; margin: 4px 4px 4px 4px; background-color: {instrument.hits.includes(`${index + 1}.2`) ? instruments[instrument.key].color : 'transparent'}"/>
+                    <div
+                      style="border-radius: 2px; flex-grow: 1; margin: 4px 3px 4px 5px; background-color: {instrument.hits.includes(`${index + 1}.1`) ? instruments[instrument.key].color : 'transparent'}"/>
+                    <div
+                      style="border-radius: 2px; flex-grow: 1; margin: 4px 4px 4px 4px; background-color: {instrument.hits.includes(`${index + 1}.2`) ? instruments[instrument.key].color : 'transparent'}"/>
                   {/if}
               </div>
             {/each}
@@ -112,6 +114,11 @@ export let instruments
   margin: 4px;
 }
 
+.instrument-wrap .border {
+  width: 144px;
+  text-align: center;
+}
+
 @media all and (min-width: 880px) {
   .digit {
     display: inline;
@@ -121,6 +128,18 @@ export let instruments
     width: 12px;
     height: 12px;
     border-radius: 6px;
+  }
+}
+
+@media all and (max-width: 360px) {
+  .instrument-wrap .border {
+    width: 64px !important;
+    text-align: left;
+    padding: 0 4px;
+    text-overflow: ellipsis;
+    font-size: 14px !important;
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
 </style>
