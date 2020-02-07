@@ -1,0 +1,34 @@
+{
+  "masterPicture": "favicon.png",
+  "iconsPath": "./images",
+  "design": {
+    "ios": {
+      "pictureAspect": "noChange"
+    },
+    "desktopBrowser": {},
+    "windows": {
+      "pictureAspect": "noChange",
+      "backgroundColor": "#484848",
+      "onConflict": "override"
+    },
+    "androidChrome": {
+      "pictureAspect": "noChange",
+      "themeColor": "#484848",
+      "manifest": {
+        "name": "Pocket Patterns",
+        "display": "browser",
+        "orientation": "notSet",
+        "onConflict": "override"
+      }
+    },
+    "safariPinnedTab": {
+      "pictureAspect": "silhouette",
+      "themeColor": "#484848",
+      "master_picture": "safari-pinned-tab.svg"
+    }
+  },
+  "settings": {
+    "scalingAlgorithm": "Mitchell",
+    "errorOnImageTooSmall": false
+  }
+}

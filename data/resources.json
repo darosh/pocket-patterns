@@ -1,0 +1,94 @@
+{
+  "tutorials": [
+    {
+      "title": "So you want to be a better drum programmer eh?",
+      "link": "https://reddit.com/540dve"
+    },
+    {
+      "title": "You Suck at Producing — Creating Drum Beats",
+      "link": "https://youtu.be/EILEUJCbduU"
+    },
+    {
+      "title": "How to Write Drum Beats",
+      "link": "http://mccormick.cx/news/entries/how-to-write-beats"
+    },
+    {
+      "title": "How to Play Ghost Notes on Your Snare Drum",
+      "link": "https://youtu.be/fFllZK7a3nI"
+    },
+    {
+      "title": "A Guide to Ghost Snares in MIDI",
+      "link": "https://music.tutsplus.com/tutorials/a-guide-toghost-snares-in-midi--audio-4126"
+    }
+  ],
+  "books": [
+    {
+      "title": "PO-12 Rhythm Master Class",
+      "link": "https://itunes.apple.com/us/book/po-12-rhythm/id972713257"
+    },
+    {
+      "title": "Korg Volca Beats — The Expert Guide",
+      "link": "https://itunes.apple.com/us/book/korg-volca-beatsthe-expert-guide/id1089524924"
+    },
+    {
+      "title": "Korg Volca Sample — The Expert Guide",
+      "link": "https://itunes.apple.com/us/book/korg-volca-samplethe-expert-guide/id1293675150"
+    },
+    {
+      "title": "260 Drum Machine Patterns",
+      "link": "https://archive.org/details/260DrumMachinePatterns/mode/2up"
+    },
+    {
+      "title": "Pocket Operations — A portable collection of drum machine patterns",
+      "link": "https://shittyrecording.studio"
+    }
+  ],
+  "sites": [
+    {
+      "title": "The Dubroom Studio",
+      "link": "https://studio.dubroom.org",
+      "danger": true
+    },
+    {
+      "title": "Ethan Hein",
+      "link": "https://ethanhein.com"
+    },
+    {
+      "title": "808 Patterns",
+      "link": "http://808.pixll.de"
+    },
+    {
+      "title": "Funklet",
+      "link": "https://funklet.com",
+      "danger": true
+    },
+    {
+      "title": "Shedo Music",
+      "link": "http://users.skynet.be/shedo"
+    },
+    {
+      "title": "Tuts Plus",
+      "link": "https://music.tutsplus.com"
+    },
+    {
+      "title": "Music Radar",
+      "link": "https://musicradar.com"
+    },
+    {
+      "title": "Attack Magazine",
+      "link": "https://attackmagazine.com"
+    },
+    {
+      "title": "Modeblast",
+      "link": "https://facebook.com/modeblast"
+    },
+    {
+      "title": "Subaqueous Music",
+      "link": "https://subaqueousmusic.com"
+    },
+    {
+      "title": "You Suck at Producing",
+      "link": "http://yousuckatproducing.com"
+    }
+  ]
+}

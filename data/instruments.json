@@ -1,0 +1,16 @@
+[
+  ["CB", "Cowbell", "var(--cowbell-color)"],
+  ["SH", "Shaker", "var(--shaker-color)"],
+  ["CY", "Ride", "var(--ride-color)"],
+  ["HT", "High Tom", "var(--high-color)"],
+  ["MT", "Medium Tom", "var(--medium-color)"],
+  ["LT", "Low Tom", "var(--low-color)"],
+  ["OH", "Open Hat", "var(--open-color)"],
+  ["CH", "Closed Hat", "var(--closed-color)"],
+  ["CL", "Clap", "var(--clap-color)"],
+  ["HC", "Clap", "var(--clap-color)"],
+  ["SN", "Snare", "var(--snare-color)"],
+  ["RS", "Rim", "var(--rim-color)"],
+  ["BD", "Kick", "var(--kick-color)"],
+  ["AC", "Accent"]
+]
