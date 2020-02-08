@@ -1,4 +1,6 @@
 <script>
+// Based on https://github.com/sveltejs/svelte/blob/e8b7cd7889e93efc7814a18249830ca596797f96/site/src/components/IntersectionObserver.svelte
+
 import { onMount } from 'svelte'
 import { createEventDispatcher } from 'svelte'
 
