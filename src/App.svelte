@@ -3,11 +3,11 @@ import groups from '../data/groups'
 import instrumentsArray from '../data/instruments'
 import { sites, tutorials, books } from '../data/resources'
 
+import List from './components/List.svelte'
 import Grid from './components/Grid.svelte'
 
 import IconButton, { Icon } from '@smui/icon-button'
 import Drawer, { AppContent, Content, Header, Title, Subtitle, Scrim } from '@smui/drawer'
-import List, { Item, Text, Separator, Subheader, Meta } from '@smui/list'
 
 import Logo from './components/Logo.svelte'
 import IconSvg from 'svelte-icon'
@@ -89,23 +89,7 @@ function hash (text) {
 <div>
   <Drawer variant={width < 1024 ? 'modal' : 'permanent'} bind:this={drawer} bind:open={drawerOpen}>
     <Content>
-      <List>
-        <Item href="#patterns">
-          <Text>Pocket Patterns</Text>
-          <Meta>({groups.reduce((acc, {patterns}) => acc + patterns.length, 0)})</Meta>
-        </Item>
-        <Separator/>
-          {#each groups as group, index (index)}
-            <Item href={group.hash} selected={ active[group.id] }>
-              <Text>{index + 1}. {group.title}</Text>
-              <Meta>({group.patterns.length})</Meta>
-            </Item>
-          {/each}
-        <Separator/>
-        <Item href="#resources">
-          <Text>Resources</Text>
-        </Item>
-      </List>
+      <List groups={groups} active={active} />
     </Content>
   </Drawer>
   <Scrim/>
@@ -124,11 +108,7 @@ function hash (text) {
         </p>
       </IntersectionObserver>
 
-      <div style="margin-top: 48px;" class="margin-side">
-        <List>
-          <Separator/>
-        </List>
-      </div>
+      <div style="margin-top: 48px;" class="mdc-list-divider margin-side" />
 
         {#each groups as group, index (index)}
           <IntersectionObserver on:intersecting={({detail}) => active[group.id] = detail}>
@@ -173,11 +153,7 @@ function hash (text) {
           </IntersectionObserver>
         {/each}
 
-      <div style="margin-top: 48px;">
-        <List>
-          <Separator/>
-        </List>
-      </div>
+      <div style="margin-top: 48px;" class="mdc-list-divider margin-side" />
 
       <IntersectionObserver on:intersecting={({detail}) => active['resources'] = detail}>
         <h2 id="resources"
@@ -197,11 +173,7 @@ function hash (text) {
           {/each}
       </IntersectionObserver>
 
-      <div style="margin-top: 48px;" class="margin-side">
-        <List>
-          <Separator/>
-        </List>
-      </div>
+      <div style="margin-top: 48px;" class="mdc-list-divider margin-side" />
 
       <p style="text-align: right;">
         <span style="opacity: 0.87;">Made in Brno</span><span
@@ -320,13 +292,6 @@ h3 {
   margin-bottom: 0;
 }
 
-:global(.mdc-drawer .mdc-list-item) {
-  margin: 0 !important;
-  padding-left: 12px !important;
-  padding-right: 12px !important;
-  border-radius: 0 !important;
-}
-
 :global(svg) {
   stroke-width: 0;
 }
@@ -349,19 +314,5 @@ h2 a:hover, h3 a:hover {
   height: 40px !important;
   width: 40px !important;
   padding: 8px;
-}
-
-.link {
-  color: var(--kick-color);
-  text-decoration: none;
-}
-
-.link:hover {
-  text-decoration: underline;
-}
-
-* :global(.mdc-list-item) {
-  font-size: 15px !important;
-  font-weight: normal !important;
 }
 </style>

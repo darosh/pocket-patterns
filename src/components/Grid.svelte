@@ -141,5 +141,14 @@ export let instruments
     white-space: nowrap;
     overflow: hidden;
   }
+
+  .cell {
+    min-height: 23px;
+    line-height: 23px;
+  }
+
+  .border.all {
+    border-radius: 6px;
+  }
 }
 </style>

@@ -13,6 +13,7 @@
   --snare-color: rgba(224, 140, 38, 0.94);
   --rim-color: rgba(224, 165, 31, 0.94);
   --kick-color: rgba(224, 182, 26, 0.94);
+  --link-color: rgba(224, 182, 26, 1);
 }
 
 body {
@@ -20,4 +21,13 @@ body {
   font-family: Roboto, sans-serif;
   color: #fff;
   margin: 0;
+}
+
+.link {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
 }
