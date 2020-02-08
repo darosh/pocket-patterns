@@ -142,7 +142,7 @@ function hash (text) {
                     <div style="height: 24px;"/>
                   {/if}
                 <div style="display: flex">
-                  <div class="part" style="width: 24px; padding-left: 8px; font-weight: bold;">
+                  <div class="part" style="width: 24px; padding-left: 4px; font-weight: bold; box-sizing: border-box;">
                       {pattern.part || ''}
                   </div>
                   <div style="flex-grow: 1;">
