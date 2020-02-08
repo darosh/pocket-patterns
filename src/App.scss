@@ -23,6 +23,11 @@ body {
   margin: 0;
 }
 
+body > * {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
 .link {
   color: var(--link-color);
   text-decoration: none;

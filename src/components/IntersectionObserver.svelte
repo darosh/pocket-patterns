@@ -29,11 +29,10 @@ onMount(() => {
       if (previousIntersecting !== intersecting) {
         dispatch('intersecting', intersecting)
       }
-    }, {
-      rootMargin
-    })
+    }, { rootMargin })
 
     observer.observe(container)
+
     return () => observer.unobserve(container)
   }
 
