@@ -89,26 +89,20 @@ function hash (text) {
 <div>
   <Drawer variant={width < 1024 ? 'modal' : 'permanent'} bind:this={drawer} bind:open={drawerOpen}>
     <Content>
-      <List groups={groups} active={active} />
+      <List groups={groups} active={active}/>
     </Content>
   </Drawer>
   <Scrim/>
   <AppContent class="app-content">
     <main class="main-content">
       <IntersectionObserver on:intersecting={({detail}) => active['patterns'] = detail}>
-        <h1
-          id="patterns">
-          Pocket<span
-          style="line-height: 84px; vertical-align: text-bottom; padding: 0 4px 0 20px;"
-          class="logo"> <Logo size="66px"/> </span>Patterns
-        </h1>
-
-        <p style="font-size: 20px; line-height: 28px;">Drum machine patterns based on
+        <h1 id="patterns">Pocket<span> <Logo size="0.92em"/> </span>Patterns</h1>
+        <p class="mdc-typography--body1">Drum machine patterns based on
           <a href="https://shittyrecording.studio/" class="link" target="_blank">Shitty Recording Studio</a> collection.
         </p>
       </IntersectionObserver>
 
-      <div style="margin-top: 48px;" class="mdc-list-divider margin-side" />
+      <div style="margin-top: 48px;" class="mdc-list-divider margin-side"/>
 
         {#each groups as group, index (index)}
           <IntersectionObserver on:intersecting={({detail}) => active[group.id] = detail}>
@@ -153,7 +147,7 @@ function hash (text) {
           </IntersectionObserver>
         {/each}
 
-      <div style="margin-top: 48px;" class="mdc-list-divider margin-side" />
+      <div style="margin-top: 48px;" class="mdc-list-divider margin-side"/>
 
       <IntersectionObserver on:intersecting={({detail}) => active['resources'] = detail}>
         <h2 id="resources"
@@ -165,7 +159,7 @@ function hash (text) {
 
           {#each resources as {title, items}}
             <h3>{title}</h3>
-            <ul style="margin-bottom: 48px; line-height: 36px; font-size: 20px;">
+            <ul style="margin-bottom: 48px;" class="mdc-typography--body1">
                 {#each items.filter(({danger}) => !danger) as {link, title}}
                   <li><a class="link" href={link} target="_blank">{title}</a></li>
                 {/each}
@@ -173,9 +167,9 @@ function hash (text) {
           {/each}
       </IntersectionObserver>
 
-      <div style="margin-top: 48px;" class="mdc-list-divider margin-side" />
+      <div style="margin-top: 48px;" class="mdc-list-divider margin-side"/>
 
-      <p style="text-align: right;">
+      <p class="mdc-typography--body1" style="text-align: right;">
         <span style="opacity: 0.87;">Made in Brno</span><span
         style="line-height: 12px; vertical-align: text-bottom; padding: 0 4px 0 8px;"
         class="logo"> <Logo size="24px"/> </span><span style="opacity: 0.87;">MMXX</span>
@@ -210,35 +204,70 @@ h1, h2, h3, p, .margin-side {
 }
 
 h1 {
+  margin-top: 0;
   font-family: Lora, sans-serif !important;
   font-size: 72px;
-  word-spacing: -8px;
-  letter-spacing: -2.5px;
+  word-spacing: -0.11em;
+  letter-spacing: -0.035em;
+}
+
+h1 span {
+  line-height: 1.175em;
+  vertical-align: text-bottom;
+  padding: 0 0.054em 0 0.26em;
 }
 
 h2 {
+  margin-top: 96px;
+  margin-bottom: 64px;
   font-family: Lora, sans-serif !important;
-  font-size: 48px;;
-  letter-spacing: 6px;
+  font-size: 48px;
+  letter-spacing: 0.13em;
 }
 
 h3 {
+  margin-top: 0;
+  margin-bottom: 0;
   flex-grow: 1;
   align-self: center;
   font-size: 24px;
   font-weight: normal;
-  letter-spacing: 1px;
+  letter-spacing: 0.03em;
 }
 
 @media only screen and (max-width: 960px) {
   .main-content {
     padding: 32px 40px 24px 16px;
   }
+
+  h1 {
+    font-size: 64px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 22px !important;
+  }
 }
 
 @media only screen and (max-width: 640px) {
   .main-content {
     padding: 24px 24px 24px 0;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 20px !important;
   }
 }
 
@@ -251,54 +280,17 @@ h3 {
     display: none;
   }
 
-
   h1, h2, h3, p, .margin-side {
     margin-left: 0;
   }
 
   h2 {
-    letter-spacing: 2px !important;
     font-size: 26px !important;
   }
 
   h3 {
     font-size: 18px !important;
   }
-}
-
-h2 {
-  margin-top: 64px;
-  margin-bottom: 64px;
-}
-
-h3 {
-  margin-top: 56px;
-  margin-bottom: 12px;
-  font-size: 24px;
-  font-weight: normal;
-  letter-spacing: 1px;
-}
-
-h1 {
-  margin-top: 0;
-}
-
-h2 {
-  margin-top: 96px;
-}
-
-h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-:global(svg) {
-  stroke-width: 0;
-}
-
-:global(.metro-btn) {
-  padding-left: 8px;
-  padding-right: 12px;
 }
 
 h2 a, h3 a {
@@ -308,6 +300,15 @@ h2 a, h3 a {
 
 h2 a:hover, h3 a:hover {
   text-decoration: underline;
+}
+
+:global(svg) {
+  stroke-width: 0;
+}
+
+:global(.metro-btn) {
+  padding-left: 8px;
+  padding-right: 12px;
 }
 
 :global(.mini-btn) {
