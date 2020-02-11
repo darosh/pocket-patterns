@@ -140,7 +140,7 @@ function hash (text) {
                       {pattern.part || ''}
                   </div>
                   <div style="flex-grow: 1;">
-                    <Grid {...{ pattern, instruments }}/>
+                      <Grid {...{ pattern, instruments, show: active[group.id] }}/>
                   </div>
                 </div>
               {/each}
@@ -233,6 +233,13 @@ h3 {
   font-size: 24px;
   font-weight: normal;
   letter-spacing: 0.03em;
+}
+
+@media only screen and (min-width: 961px) {
+  .mdc-typography--body1 {
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+  }
 }
 
 @media only screen and (max-width: 960px) {
