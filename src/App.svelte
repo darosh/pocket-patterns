@@ -299,6 +299,8 @@ h3 {
 
   h2 {
     font-size: 26px !important;
+    margin-top: 64px;
+    margin-bottom: 32px;
   }
 
   h3 {
