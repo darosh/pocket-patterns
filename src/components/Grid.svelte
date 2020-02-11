@@ -3,9 +3,11 @@ export let pattern
 export let instruments
 export let show
 let height = 0
+let width = 0
 
-$: height = show ? 0 : pattern.instruments.filter(({key}) => key !== 'AC').length * 48 - 1
+$: height = show ? 0 : pattern.instruments.filter(({ key }) => key !== 'AC').length * (width <= 360 ? 24 : 48) - 1
 </script>
+<svelte:window bind:innerWidth={width}/>
 <div class="border all" style="min-height: {height}px;">
     {#if show}
         {#each pattern.instruments.filter(({key}) => key !== 'AC') as instrument, index (index)}
@@ -23,9 +25,11 @@ $: height = show ? 0 : pattern.instruments.filter(({key}) => key !== 'AC').lengt
                       {/if}
                       {#if instrument.hits.includes(`${index + 1}.1`) || instrument.hits.includes(`${index + 1}.2`)}
                         <div
-                          style="border-radius: 2px; flex-grow: 1; margin: 4px 3px 4px 5px; background-color: {instrument.hits.includes(`${index + 1}.1`) ? instruments[instrument.key].color : 'transparent'}"/>
+                          class="ratchet ratchet-left"
+                          style="background-color: {instrument.hits.includes(`${index + 1}.1`) ? instruments[instrument.key].color : 'transparent'}"/>
                         <div
-                          style="border-radius: 2px; flex-grow: 1; margin: 4px 4px 4px 4px; background-color: {instrument.hits.includes(`${index + 1}.2`) ? instruments[instrument.key].color : 'transparent'}"/>
+                          class="ratchet ratchet-right"
+                          style="background-color: {instrument.hits.includes(`${index + 1}.2`) ? instruments[instrument.key].color : 'transparent'}"/>
                       {/if}
                   </div>
                 {/each}
@@ -127,6 +131,19 @@ $: height = show ? 0 : pattern.instruments.filter(({key}) => key !== 'AC').lengt
   text-align: center;
 }
 
+.ratchet {
+  border-radius: 2px;
+  flex-grow: 1;
+}
+
+.ratchet .ratchet-left {
+  margin: 4px 3px 4px 5px;
+}
+
+.ratchet .ratchet-right {
+  margin: 4px 4px 4px 4px;
+}
+
 @media all and (min-width: 880px) {
   .digit {
     display: inline;
@@ -157,6 +174,14 @@ $: height = show ? 0 : pattern.instruments.filter(({key}) => key !== 'AC').lengt
 
   .border.all {
     border-radius: 6px;
+  }
+
+  .ratchet .ratchet-left {
+    margin: 2px 1px 2px 3px;
+  }
+
+  .ratchet .ratchet-right {
+    margin: 2px 2px 2px 2px;
   }
 }
 </style>

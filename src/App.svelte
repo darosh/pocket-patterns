@@ -118,7 +118,7 @@ function hash (text) {
                       <h3
                         id={pattern.id}>
                         <a href={pattern.hash}>{pattern.title}</a></h3>
-                      <div style="align-self: center; margin-right: 4px; opacity: 0.6">
+                      <div class="tempo-label">
                         120
                       </div>
                       <div style="align-self: center; margin-right: 4px;">
@@ -140,7 +140,7 @@ function hash (text) {
                       {pattern.part || ''}
                   </div>
                   <div style="flex-grow: 1;">
-                      <Grid {...{ pattern, instruments, show: active[group.id] }}/>
+                    <Grid {...{ pattern, instruments, show: active[group.id] }}/>
                   </div>
                 </div>
               {/each}
@@ -235,6 +235,12 @@ h3 {
   letter-spacing: 0.03em;
 }
 
+.tempo-label {
+  align-self: center;
+  margin-right: 4px;
+  opacity: 0.6
+}
+
 @media only screen and (min-width: 961px) {
   .mdc-typography--body1 {
     font-size: 1.25rem;
@@ -297,6 +303,10 @@ h3 {
 
   h3 {
     font-size: 18px !important;
+  }
+
+  .tempo-label {
+    display: none;
   }
 }
 
