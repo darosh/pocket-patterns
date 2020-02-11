@@ -6,24 +6,23 @@ dependencies:
   '@smui/drawer': 1.0.0-beta.20
   '@smui/icon-button': 1.0.0-beta.20
   '@smui/list': 1.0.0-beta.20
-  d3-shape: 1.3.7
   material-icons-bundle: github.com/darosh/material-icons-bundle/6d72e3f15f84d215639af4badb73dc35b8b249ea
   svelte-icon: 1.0.1
   webmidi: 2.5.1
 devDependencies:
-  '@rollup/plugin-commonjs': 11.0.1_rollup@1.31.0
-  '@rollup/plugin-json': 4.0.1_rollup@1.31.0
-  '@rollup/plugin-node-resolve': 7.0.0_rollup@1.31.0
+  '@rollup/plugin-commonjs': 11.0.2_rollup@1.31.0
+  '@rollup/plugin-json': 4.0.2_rollup@1.31.0
+  '@rollup/plugin-node-resolve': 7.1.1_rollup@1.31.0
   gh-pages: 2.2.0
   rollup: 1.31.0
   rollup-plugin-livereload: 1.0.4_rollup@1.31.0
   rollup-plugin-postcss: 2.0.6
   rollup-plugin-string: 3.0.0
-  rollup-plugin-svelte: 5.1.1_rollup@1.31.0+svelte@3.18.1
+  rollup-plugin-svelte: 5.1.1_rollup@1.31.0+svelte@3.18.2
   rollup-plugin-terser: 5.2.0_rollup@1.31.0
   sass: 1.25.0
   sirv-cli: 0.4.5
-  svelte: 3.18.1
+  svelte: 3.18.2
 lockfileVersion: 5.1
 packages:
   /@babel/code-frame/7.8.3:
@@ -176,10 +175,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-oZLYFEAzUKyi3SKnXvj32ZCEGH6RDnao7COuCVhDydMS9NrCSVXhM79VaKyP5+Zc33m0QXEd2DN3UkU7OsHcfw==
-  /@rollup/plugin-commonjs/11.0.1_rollup@1.31.0:
+  /@rollup/plugin-commonjs/11.0.2_rollup@1.31.0:
     dependencies:
       '@rollup/pluginutils': 3.0.6_rollup@1.31.0
-      estree-walker: 0.6.1
+      estree-walker: 1.0.1
       is-reference: 1.1.4
       magic-string: 0.25.6
       resolve: 1.15.0
@@ -190,17 +189,17 @@ packages:
     peerDependencies:
       rollup: ^1.20.0
     resolution:
-      integrity: sha512-SaVUoaLDg3KnIXC5IBNIspr1APTYDzk05VaYcI6qz+0XX3ZlSCwAkfAhNSOxfd5GAdcm/63Noi4TowOY9MpcDg==
-  /@rollup/plugin-json/4.0.1_rollup@1.31.0:
+      integrity: sha512-MPYGZr0qdbV5zZj8/2AuomVpnRVXRU5XKXb3HVniwRoRCreGlf5kOE081isNWeiLIi6IYkwTX9zE0/c7V8g81g==
+  /@rollup/plugin-json/4.0.2_rollup@1.31.0:
     dependencies:
+      '@rollup/pluginutils': 3.0.6_rollup@1.31.0
       rollup: 1.31.0
-      rollup-pluginutils: 2.8.2
     dev: true
     peerDependencies:
       rollup: ^1.20.0
     resolution:
-      integrity: sha512-soxllkhOGgchswBAAaTe7X9G80U2tjjHvXv0sBrriLJcC/89PkP59iTrKPOfbz3SjX088mKDmMhAscuyLz8ZSg==
-  /@rollup/plugin-node-resolve/7.0.0_rollup@1.31.0:
+      integrity: sha512-t4zJMc98BdH42mBuzjhQA7dKh0t4vMJlUka6Fz0c+iO5IVnWaEMiYBy1uBj9ruHZzXBW23IPDGL9oCzBkQ9Udg==
+  /@rollup/plugin-node-resolve/7.1.1_rollup@1.31.0:
     dependencies:
       '@rollup/pluginutils': 3.0.6_rollup@1.31.0
       '@types/resolve': 0.0.8
@@ -214,7 +213,7 @@ packages:
     peerDependencies:
       rollup: ^1.20.0
     resolution:
-      integrity: sha512-+vOx2+WMBMFotYKM3yYeDGZxIvcQ7yO4g+SuKDFsjKaq8Lw3EPgfB6qNlp8Z/3ceDCEhHvC9/b+PgBGwDQGbzQ==
+      integrity: sha512-14ddhD7TnemeHE97a4rLOhobfYvUVcaYuqTnL8Ti7Jxi9V9Jr5LY7Gko4HZ5k4h4vqQM0gBQt6tsp9xXW94WPA==
   /@rollup/pluginutils/3.0.6_rollup@1.31.0:
     dependencies:
       estree-walker: 1.0.1
@@ -833,16 +832,6 @@ packages:
       node: '>=8.0.0'
     resolution:
       integrity: sha512-kS7/oeNVXkHWxby5tHVxlhjizRCSv8QdU7hB2FpdAibDU8FjTAolhNjKNTiLzXtUrKT6HwClE81yXwEk1309wg==
-  /d3-path/1.0.9:
-    dev: false
-    resolution:
-      integrity: sha512-VLaYcn81dtHVTjEHd8B+pbe9yHWpXKZUC87PzoFmsFrJqgFwDe/qxfp5MlfsfM1V5E/iVt0MmEbWQ7FVIXh/bg==
-  /d3-shape/1.3.7:
-    dependencies:
-      d3-path: 1.0.9
-    dev: false
-    resolution:
-      integrity: sha512-EUkvKjqPFUAZyOlhY5gzCxCeI0Aep04LwIRpsZ/mLFelJiUfnK56jo5JMDSE7yyP2kLSb6LtF+S5chMk7uqPqw==
   /debug/2.6.9:
     dependencies:
       ms: 2.0.0
@@ -2547,13 +2536,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-vqyzgn9QefAgeKi+Y4A7jETeIAU1zQmS6VotH6bzm/zmUQEnYkpIGRaOBPY41oiWYV4JyBoGAaBjYMYuv+6wVw==
-  /rollup-plugin-svelte/5.1.1_rollup@1.31.0+svelte@3.18.1:
+  /rollup-plugin-svelte/5.1.1_rollup@1.31.0+svelte@3.18.2:
     dependencies:
       require-relative: 0.8.7
       rollup: 1.31.0
       rollup-pluginutils: 2.8.2
       sourcemap-codec: 1.4.8
-      svelte: 3.18.1
+      svelte: 3.18.2
     dev: true
     peerDependencies:
       rollup: '>=0.60.0'
@@ -2877,10 +2866,17 @@ packages:
     resolution:
       integrity: sha512-AdCCNnkfW8xbArfrhK7Anfg9yHMw9JmY0U1/KLTl+8dGZhJwoQUsN0sXKNVPy6S5PAK0tFvNfTjdmob+fjowEg==
   /svelte/3.18.1:
+    dev: false
     engines:
       node: '>= 8'
     resolution:
       integrity: sha512-jl6VLGTytOjHu700LuXSX6LvwRKFLAxqT8McUD2f3NjMI6qakWXgXoVjT+/ZmXmr8DiwrN/074pA1o3Aye4bIA==
+  /svelte/3.18.2:
+    dev: true
+    engines:
+      node: '>= 8'
+    resolution:
+      integrity: sha512-jRk7jdYULb9V4Z+0BKlfofombmdIIQph4leojrOSHzvZBRmCredz7fZsJBiUDLO6h83XYekuLbwfy5zx1i95GQ==
   /svgo/1.3.2:
     dependencies:
       chalk: 2.4.2
@@ -3070,25 +3066,24 @@ packages:
 specifiers:
   '@material/theme': ^4.0.0
   '@material/typography': ^4.0.0
-  '@rollup/plugin-commonjs': ^11.0.1
-  '@rollup/plugin-json': ^4.0.1
-  '@rollup/plugin-node-resolve': ^7.0.0
+  '@rollup/plugin-commonjs': ^11.0.2
+  '@rollup/plugin-json': ^4.0.2
+  '@rollup/plugin-node-resolve': ^7.1.1
   '@smui/button': ^1.0.0-beta.20
   '@smui/common': ^1.0.0-beta.20
   '@smui/drawer': ^1.0.0-beta.20
   '@smui/icon-button': ^1.0.0-beta.20
   '@smui/list': ^1.0.0-beta.20
-  d3-shape: ^1.3.7
-  gh-pages: ^2.1.1
+  gh-pages: ^2.2.0
   material-icons-bundle: 'darosh/material-icons-bundle#6d72e3f15f84d215639af4badb73dc35b8b249ea'
-  rollup: ^1.27.14
+  rollup: ^1.31.0
   rollup-plugin-livereload: ^1.0.4
   rollup-plugin-postcss: ^2.0.6
   rollup-plugin-string: ^3.0.0
   rollup-plugin-svelte: ^5.1.1
-  rollup-plugin-terser: ^5.1.3
+  rollup-plugin-terser: ^5.2.0
   sass: ^1.25.0
   sirv-cli: ^0.4.5
-  svelte: ^3.16.7
+  svelte: ^3.18.2
   svelte-icon: ^1.0.1
   webmidi: ^2.5.1
