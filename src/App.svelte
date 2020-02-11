@@ -44,7 +44,7 @@ const resources = [
 
 window.addEventListener('hashchange', onHash, false)
 
-onMount(onHash)
+onMount(() => setTimeout(onHash, 0))
 
 function onHash () {
   if (location.hash) {
