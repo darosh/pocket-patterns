@@ -23,6 +23,7 @@ let drawer
 let drawerOpen = true
 let playing = true
 let active = {}
+let visible = {}
 
 for (const group of groups) {
   group.id = groupId(slug(group.title))
@@ -32,6 +33,7 @@ for (const group of groups) {
   for (const pattern of group.patterns) {
     pattern.id = patternId(slug(pattern.title))
     pattern.hash = hash(pattern.id)
+    visible[pattern.id] = false
   }
 }
 
@@ -140,7 +142,9 @@ function hash (text) {
                       {pattern.part || ''}
                   </div>
                   <div style="flex-grow: 1;">
-                    <Grid {...{ pattern, instruments, show: active[group.id] }}/>
+                    <IntersectionObserver on:intersecting={({detail}) => visible[pattern.id] = detail}>
+                      <Grid {...{ pattern, instruments, show: visible[pattern.id] }}/>
+                    </IntersectionObserver>
                   </div>
                 </div>
               {/each}
