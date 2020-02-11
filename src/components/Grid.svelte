@@ -8,7 +8,7 @@ let width = 0
 $: height = show ? 0 : pattern.instruments.filter(({ key }) => key !== 'AC').length * (width <= 360 ? 24 : 48) - 1
 </script>
 <svelte:window bind:innerWidth={width}/>
-<div class="border all" style="min-height: {height}px;">
+<div class="border all" style="min-height: {height}px;" class:visible={show}>
     {#if show}
         {#each pattern.instruments.filter(({key}) => key !== 'AC') as instrument, index (index)}
           <div style="display: flex; ">
@@ -41,7 +41,7 @@ $: height = show ? 0 : pattern.instruments.filter(({ key }) => key !== 'AC').len
 {#if show}
     {#each pattern.instruments.filter(({key}) => key === 'AC') as instrument, index (index)}
       <div style="display: flex; ">
-        <div class="cell accent" style="width: 144px;"/>
+        <div class="cell accent header"/>
         <div style="display: flex; flex-grow: 1;">
             {#each {length: 16} as number, index (index)}
               <div
@@ -76,6 +76,9 @@ $: height = show ? 0 : pattern.instruments.filter(({ key }) => key !== 'AC').len
   overflow: hidden;
   border-bottom-width: 0;
   border-right-width: 0;
+}
+
+.border.all.visible {
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
 }
 
@@ -126,7 +129,7 @@ $: height = show ? 0 : pattern.instruments.filter(({ key }) => key !== 'AC').len
   margin: 4px;
 }
 
-.instrument-wrap .border {
+.instrument-wrap .border, .cell.accent.header {
   width: 144px;
   text-align: center;
 }
@@ -165,6 +168,10 @@ $: height = show ? 0 : pattern.instruments.filter(({ key }) => key !== 'AC').len
     font-size: 14px !important;
     white-space: nowrap;
     overflow: hidden;
+  }
+
+  .cell.accent.header {
+    width: 64px !important;
   }
 
   .cell {

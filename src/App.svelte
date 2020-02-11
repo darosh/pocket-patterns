@@ -142,7 +142,7 @@ function hash (text) {
                       {pattern.part || ''}
                   </div>
                   <div style="flex-grow: 1;">
-                    <IntersectionObserver on:intersecting={({detail}) => visible[pattern.id] = detail}>
+                    <IntersectionObserver top={1080} bottom={1080} on:intersecting={({detail}) => visible[pattern.id] = detail}>
                       <Grid {...{ pattern, instruments, show: visible[pattern.id] }}/>
                     </IntersectionObserver>
                   </div>
